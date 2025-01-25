@@ -4,25 +4,36 @@ from datastructures.ibag import IBag, T
 
 class Bag(IBag[T]):
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
-        raise NotImplementedError("__init__ method not implemented")
+        self.items = [] # This is initializing the bag as an empty list.
+        if items: # If the bag is instatiated with items,
+            for item in items: # For every item in the items provided,
+                self.add(item) # Add the to the bag.
 
     def add(self, item: T) -> None:
-        raise NotImplementedError("add method not implemented")
-
+        if item is None: # If the item is an unaccpeted data type,
+            raise TypeError("You cannot add nothing to the bag.") # Raise a TypeError.
+        self.items.append(item) # Else, add the items to the bag. 
+        
     def remove(self, item: T) -> None:
-        raise NotImplementedError("remove method not implemented")
-
+        self.items.remove(item) # Remove a specific item from the bag. 
+        if item not in self.items: # If the item isn't in the bag to being with,
+            raise ValueError("You can't remove this item, it isn't in your bag.") # Raise a ValueError.
+        
     def count(self, item: T) -> int:
-        raise NotImplementedError("count method not implemented")
+        return self.items.count(item) # Return the number of occurences of a specific item. 
 
     def __len__(self) -> int:
-        raise NotImplementedError("__len__ method not implemented")
+        return len(self.items) # Return the amoumt of items in the bag. 
 
     def distinct_items(self) -> int:
-        raise NotImplementedError("distinct_items method not implemented")
+        distinct_items = set(self.items) # Since sets can't contain duplicate items, convert the bag into a set. 
+        return distinct_items # Return the set values. 
 
     def __contains__(self, item) -> bool:
-        raise NotImplementedError("__contains__ method not implemented")
+        if item in self.items: # If an item is in the bag,
+            return True # Return True.
+        else:
+            return False
 
     def clear(self) -> None:
-        raise NotImplementedError("clear method not implemented")
+        return self.items.clear() # Clear all of the items out of the bag. 
