@@ -26,4 +26,4 @@ class Game:
                 print(f"{defender.name} has been defeated!")
                 break
 
-            attacker, defender = defender, attacker
+            attacker, defender = defender, attacker # Makes the attacker and defender roles take turns. 
