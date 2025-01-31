@@ -5,7 +5,7 @@ from datastructures.ibag import IBag, T
 class Bag(IBag[T]):
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
         self.items = [] # This is initializing the bag as an empty list.
-        if items: # If the bag is instatiated with items,
+        if items: # If the bag is instantiated with items,
             for item in items: # For every item in the items provided,
                 self.add(item) # Add the to the bag.
 
@@ -23,7 +23,7 @@ class Bag(IBag[T]):
         return self.items.count(item) # Return the number of occurences of a specific item. 
 
     def __len__(self) -> int:
-        return len(self.items) # Return the amoumt of items in the bag. 
+        return len(self.items) # Return the amount of items in the bag. 
 
     def distinct_items(self) -> int:
         distinct_items = set(self.items) # Since sets can't contain duplicate items, convert the bag into a set. 
