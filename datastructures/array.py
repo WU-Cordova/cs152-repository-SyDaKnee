@@ -20,7 +20,6 @@ from datastructures.iarray import IArray, T
 class Array(IArray[T]):  
 
     def __init__(self, starting_sequence: Sequence[T] = [], data_type: type = object) -> None:
-
         if not isinstance(starting_sequence, Sequence):
             raise ValueError("This sequence type is not a valid sequence type.")
         
@@ -54,10 +53,14 @@ class Array(IArray[T]):
     def __setitem__(self, index:int, value: T) -> None:
         if not isinstance(index, int):
             raise TypeError("The index must be an integer.")
+        
         if index < 0 or index >= self.__item_count:
             raise IndexError("The index is out of range.")
+        
         if not isinstance(value, self.__data_type):
             raise TypeError("The data type of the value does not match the array.")
+        
+        self.__items[index] = value
         
     def append(self, data: T) -> None:
         if not isinstance(data, self.__data_type):
