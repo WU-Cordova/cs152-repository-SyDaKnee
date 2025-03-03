@@ -21,7 +21,6 @@ class Array2D(IArray2D[T]):
             
             index = self.row_index * self.num_columns + column_index
 
-            print(f"Fetching value at index {index}: {self.array[index]}")
             return self.array[index]
         
         def __setitem__(self, column_index: int, value: T) -> None:
@@ -33,7 +32,6 @@ class Array2D(IArray2D[T]):
             
             index = self.row_index * self.num_columns + column_index
 
-            print(f"Setting value at index {index}: {value}")
             self.array[index] = value
         
         def __iter__(self) -> Iterator[T]:
@@ -91,7 +89,6 @@ class Array2D(IArray2D[T]):
     def __getitem__(self, row_index: int) -> Array2D.IRow[T]:
         if not (0 <= row_index < self.__num_rows):
             raise IndexError(f"Row index {row_index} out of bounds.")
-        print(f"Fetching row {row_index}")
         return self.__rows[row_index]
     
     def __iter__(self) -> Iterator[Sequence[T]]:

@@ -1,7 +1,6 @@
 from typing import Iterable, Optional
 from datastructures.ibag import IBag, T
 
-
 class Bag(IBag[T]):
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
         self.__bag = [] # This is initializing the bag as an empty list.
