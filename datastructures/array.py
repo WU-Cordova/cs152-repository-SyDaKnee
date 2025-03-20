@@ -162,7 +162,6 @@ class Array(IArray[T]):
     def __repr__(self) -> str:
         return f'Array {self.__str__()}, Logical: {self.__item_count}, Physical: {len(self.__items)}, type: {self.__data_type}'
     
-
 if __name__ == '__main__':
     filename = os.path.basename(__file__)
     print(f'This is the {filename} file.\nDid you mean to run your tests or program.py file?\nFor tests, run them from the Test Explorer on the left.')
